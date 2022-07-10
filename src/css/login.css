@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+body{
+    width: 100vw;
+    height: 100vh;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: 'Roboto', sans-serif;
+}
+
+#app{
+    width:80%;
+    height:80%;
+    display: flex;
+    position: relative;
+
+    box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.5);
+}
+
+.image-login{
+    position: absolute;
+    top:0;
+    left:0;
+
+    height:100%;
+    width:50%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    transition:ease all 1s;
+}
+.image-login.active{
+    left:50%;
+}
+
+.image-login img{
+    object-fit: cover;
+    height:100%;
+    width: 100%;
+    position: relative;
+}
+
+.register, .login{
+    width: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    flex-direction: column;
+}
+
+.input-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.input-container label{
+    margin-bottom:5px;
+}
+
+.input-container input{
+    outline:none;
+    border:solid 1px black;
+    padding:10px;
+    width:250px;
+    transition: ease all 0.3s;
+}
+.input-container input:focus{
+    
+    border:solid 1px #F37521;
+}
+
+.btn-login{
+    cursor:pointer;
+    padding:10px 20px;
+    border:solid 1px #F37521;
+    background: none;
+    color:#F37521;
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+    transition: ease all 0.3s;
+}
+.btn-login:hover{
+    color:white;
+}
+
+.btn-login::before{
+    position: absolute;
+    top:0;
+    left:100%;
+    content: "";
+    width:100%;
+    height: 100%;
+    background:#F37521;
+    transition:ease all 0.3s;
+
+    z-index:-1;
+}
+.btn-login:hover:before{
+    left:0;
+}
+
+.container-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-button a{
+    color:#db6b20;
+}
+.container-button a:hover{
+    color:#F37521;
+}
