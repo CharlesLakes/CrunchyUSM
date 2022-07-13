@@ -2,18 +2,15 @@
 class msgSwal
 {
     private $msg;
-    function __construct()
-    {
+    function __construct(){
         $msg = FALSE;
     }
 
-    function msg(array $opt)
-    {
+    function msg(array $opt){
         $this->msg = $opt;
     }
 
-    function execute()
-    {
+    function execute(){
         if ($this->msg) {
 ?>
             <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>

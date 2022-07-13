@@ -38,7 +38,7 @@
                 <a href="#" class="toggle-status">Iniciar sesión</a>
             </div>
         </form>
-        <form class="login" method="POST">
+        <form class="login" action="login.php"  method="POST">
             <h2>Iniciar sesión</h2>
             <div class="input-container" style="padding-bottom: 20px;">
                 <label for="email">Correo o usuario</label>

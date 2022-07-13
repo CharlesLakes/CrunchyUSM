@@ -1,9 +1,13 @@
 $(function(){
 
     var processStatus = ()  => {
-        if(initialStatus)
+        if(initialStatus){
             $("#image-login").addClass("active");
-        else $("#image-login").removeClass("active");
+            $(".register").addClass("active");
+        }else{ 
+            $("#image-login").removeClass("active");
+            $(".register").removeClass("active");
+        };
     };
 
     $(".toggle-status").click(()=>{

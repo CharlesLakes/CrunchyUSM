@@ -6,8 +6,7 @@ session_start();
 
 
 // process
-function processRequests()
-{
+function processRequests(){
 
     global $Swal, $database;
     $initialStatus = 0;

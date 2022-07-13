@@ -52,6 +52,7 @@ body{
     align-items: center;
 
     flex-direction: column;
+    background: white;;
 }
 
 .input-container{
@@ -84,8 +85,9 @@ body{
     color:#F37521;
     box-sizing: border-box;
     position: relative;
-    overflow: hidden;
+    overflow:hidden;
     transition: ease all 0.3s;
+    z-index:1;
 }
 .btn-login:hover{
     color:white;
@@ -100,7 +102,6 @@ body{
     height: 100%;
     background:#F37521;
     transition:ease all 0.3s;
-
     z-index:-1;
 }
 .btn-login:hover:before{
@@ -118,4 +119,36 @@ body{
 }
 .container-button a:hover{
     color:#F37521;
+}
+
+@media only screen and (max-width: 1000px){
+    #image-login{
+        display:none;
+    }
+    #app{
+        position:relative;
+        display: block;;
+        overflow:hidden;
+    }
+
+    .login,.register{
+        position:absolute;
+        width:100%;
+        height: 100%;;
+    
+    }
+    .login{
+        top:0;
+        left:0;
+        z-index:0;
+    }
+    .register{
+        top:100%;
+        left:0;
+        z-index:1;
+        transition:ease all 0.3s;
+    }
+    .register.active{
+        top:0px;
+    }
 }
