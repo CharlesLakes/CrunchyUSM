@@ -1,0 +1,257 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
+body{
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+:root{
+    --crunchy-color:#F37521;
+    --padding-responsive:300px;
+}
+
+/* --- Scroll --- */
+::-webkit-scrollbar{
+    width:5px;
+}
+
+::-webkit-scrollbar-thumb{
+    background: var(--crunchy-color);
+}
+
+/* --- Header ----*/
+
+header{
+    position:fixed;
+    top:0;
+    left:0;
+    display: flex;
+    width: 100vw;
+    height: 50px;
+    padding:0px var(--padding-responsive);
+    box-sizing: border-box;
+    background: white;
+
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.2);
+    z-index:1000;
+}
+
+header .left-header{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+header .left-header .list-section button{
+    margin-right:20px;
+    padding:5px 20px;
+    border:none;
+    background: none;
+    cursor: pointer;
+    transition: ease all 0.3s;
+    color:var(--crunchy-color);
+    border:solid 1px var(--crunchy-color);
+    box-sizing: border-box;
+
+    position:relative;
+    overflow: hidden;
+    border-radius: 5px;
+}
+header .left-header .list-section a{
+   text-decoration: none;
+}
+
+header .left-header .list-section button:hover{
+    color:white;
+}
+
+header .left-header .list-section button::before{
+    content: "";
+    position: absolute;
+    top:0;
+    left:100%;
+    z-index:-1;
+    width: 100%;
+    height: 100%;
+    background: var(--crunchy-color);
+
+    transition:ease all 0.3s;
+}
+header .left-header .list-section button:hover:before{
+    left:0;
+}
+
+header .left-header .search{
+    height:100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header .left-header .search input{
+    outline:none;
+    border:solid 1px var(--crunchy-color);
+    padding:4px 4px;
+    height: 100%;
+    text-align: center;
+    border-radius:5px;
+}
+
+
+header .right-header{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;    
+    position: relative;
+    color:var(--crunchy-color);
+    height: 100%;    
+}
+header .container-image{
+    margin-left: 10px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:40px;
+    width: 40px;
+    overflow:hidden;
+
+    position:relative;
+    border-radius:100%;
+}
+header .container-image img{
+    position:absolute;
+    height:100%;
+}
+
+header .account{
+    position: absolute;
+    top:100%;
+    left:0;
+    display: flex;
+    flex-direction: column;
+    width:100%;
+    border:solid 1px var(--crunchy-color);
+    border-top:none;
+   
+    max-height: 0px; 
+    overflow: hidden;
+    transition: ease all 0.3s; 
+    box-sizing: border-box;
+}
+header .account a{
+    width: 100%;
+}
+
+header .right-header:hover .account{
+    max-height: 120%;
+    
+}
+
+header .account button{
+    box-sizing: border-box;
+    padding: 5px 0px;
+    background: white;
+    border:none;
+    color:var(--crunchy-color);
+    width:100%;
+    border-top:solid 1px var(--crunchy-color); 
+    transition:ease all 0.3s;
+}
+header .account button:hover{
+    background: var(--crunchy-color);
+    color:white;
+    cursor:pointer;
+}
+
+
+
+/* --- Main ---  */
+main{
+    margin-left:var(--padding-responsive);
+    margin-right: var(--padding-responsive);
+    
+    box-sizing: border-box;
+    
+}
+
+@media only screen and (max-width: 1000px){
+    :root{
+        --padding-responsive:20px;
+    }
+}
+
+
+
+
+
+/* --- Card --- */
+
+.anime-card-container{
+    display: flex;
+    justify-content: center;
+    flex-wrap:wrap ;
+}
+
+.anime-card{
+    width:200px;
+    height:200px;
+    position:relative;
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+
+    transition: ease all 0.3s;
+    box-shadow:0px 0px 0px 0px var(--crunchy-color);
+    margin:5px;
+}
+.anime-card .anime-img{
+    width:100%;
+    height:100%;
+    overflow: hidden;
+    
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.anime-card img{
+    width: 100%;
+    object-fit: cover;
+
+    transition:ease all 0.3s;
+}
+.anime-card .anime-details{
+    padding:5px;
+    box-sizing: border-box;
+    position: absolute;
+    bottom:0;
+    width:100%;
+    background:linear-gradient(to top,var(--crunchy-color) 0%,rgba(0,0,0,0) 25%);
+    color:white;
+    
+    opacity:0.95;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: ease all 0.3s;
+}
+.anime-card a{
+    position:absolute;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    z-index:1;
+}
+
+.anime-card:hover .anime-details{
+    background:linear-gradient(to top,var(--crunchy-color) 0%,rgba(0,0,0,0) 100%);
+}
+.anime-card:hover img{
+    width:110%;
+}
+.anime-card:hover {
+    bottom:0px;
+    box-shadow:2px 2px 2px 1px var(--crunchy-color);
+}
+

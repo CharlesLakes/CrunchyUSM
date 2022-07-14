@@ -1,12 +1,13 @@
 <?php
-include "../db.php";
-include "../swal.php";
+require "../db.php";
+require "../swal.php";
 
 session_start();
 
 
 // process
-function processRequests(){
+function processRequests()
+{
 
     global $Swal, $database;
     $initialStatus = 0;
@@ -17,11 +18,15 @@ function processRequests(){
     }
 
 
-    $result = $database->queryResponse("SELECT id_cuenta FROM cuentas WHERE correo=$1 AND contrasena=$2", array($_POST["email"], $_POST["password"]));
+    $result = $database->queryResponse("SELECT id_cuenta,nombre FROM cuentas WHERE (correo=$1 OR nombre=$1) AND contrasena=$2", array($_POST["email"], $_POST["password"]));
 
     if ($result) {
         $_SESSION["id_cuenta"] = $result[0]["id_cuenta"];
-        header("Location: index.php");
+        $usuario = $database->queryResponse("SELECT * FROM usuarios WHERE id_cuenta = $1", array($_SESSION["id_cuenta"]));
+        if ($usuario) {
+            header("Location: index.php");
+        }
+
         return;
     }
     $Swal->msg(array(

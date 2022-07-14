@@ -1,6 +1,6 @@
 <?php
-include "../db.php";
-include "../swal.php";
+require "../db.php";
+require "../swal.php";
 
 function processRegister()
 {

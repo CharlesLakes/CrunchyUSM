@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS usuarios
 CREATE TABLE IF NOT EXISTS peliculas
 (
     id_anime integer NOT NULL,
-    duracion real,
+    duracion text,
     contenido text,
     CONSTRAINT peliculas_pkey PRIMARY KEY (id_anime)
 );
