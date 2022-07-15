@@ -5,6 +5,10 @@ require "../swal.php";
 
 session_start();
 
+if (!isset($_SESSION["id_cuenta"]))
+    header("location: /login.php");
+
+
 function main()
 {
     global $database, $Swal;

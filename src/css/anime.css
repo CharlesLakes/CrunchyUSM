@@ -1,0 +1,93 @@
+div.anime {
+    width: 100%;
+    margin:auto;
+    min-height: 400px;
+    display: flex;
+    background: #393e46;
+    padding: 10px;
+    box-sizing: border-box;
+  
+    color: white;
+  }
+div.anime .left {
+    width: 400px;
+  }
+div.anime .left img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+div.anime .right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+  
+    height: 100%;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+
+div.anime .desc{
+    padding:10px;
+    box-sizing: border-box;
+    text-align: justify;
+}
+
+
+.video-list{
+    
+    width:95%;
+    margin:auto;
+    margin-top:10px;
+    margin-bottom:10px ;
+    background: rgb(57, 62, 70);
+
+    max-height:100%;
+    height:60vh;
+    overflow: hidden;
+    overflow-y: scroll;
+    
+}
+
+.video-list a{
+    color:white;
+    text-decoration: none;
+
+    width:100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+}
+.video-redirect{
+    width:100%;
+    height:100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding:10px;
+    box-sizing: border-box;
+    
+    color:white;
+    background: rgba(255,255,255,0);
+    transition: ease background 0.3s;
+    
+}
+.video-redirect:hover {
+    background: rgba(255,255,255,0.1);
+}
+
+.video-redirect > div{
+    margin:0px 20px;
+    width: 50%;
+    height:100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+  

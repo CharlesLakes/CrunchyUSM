@@ -4,7 +4,7 @@ CREATE TABLE IF NOT EXISTS animes
     nombre varchar(128) NOT NULL,
     foto text,
     descripcion text,
-    puntuacion_media real,
+    puntuacion_media real DEFAULT 0,
     fecha timestamp with time zone DEFAULT CURRENT_TIMESTAMP,
     CONSTRAINT animes_pkey PRIMARY KEY (id_anime)
 );

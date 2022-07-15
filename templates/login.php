@@ -63,7 +63,7 @@
                                             ?> class="image-login" <?php
                                         }
                                     ?> id="image-login">
-            <img src="https://www.muycomputer.com/wp-content/uploads/2020/10/crunchyroll.png" alt="panel login">
+            <img src="img/crunchyUSM.png" alt="panel login">
         </div>
     </div>
     <script src="js/login.js"></script>
