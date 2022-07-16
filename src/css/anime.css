@@ -1,3 +1,29 @@
+textarea:focus,
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="datetime"]:focus,
+input[type="datetime-local"]:focus,
+input[type="date"]:focus,
+input[type="month"]:focus,
+input[type="time"]:focus,
+input[type="week"]:focus,
+input[type="number"]:focus,
+input[type="email"]:focus,
+input[type="url"]:focus,
+input[type="search"]:focus,
+input[type="tel"]:focus,
+input[type="color"]:focus,
+input[type="file"]:focus,
+.uneditable-input:focus,
+.form:focus
+ {   
+  border-color: var(--crunchy-color);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 0px 4px rgba(243, 117, 33,0.5);
+  
+  outline: 0 none;
+}
+
+
 div.anime {
     width: 100%;
     margin:auto;
@@ -46,7 +72,7 @@ div.anime .desc{
     background: rgb(57, 62, 70);
 
     max-height:100%;
-    height:60vh;
+    max-height:60vh;
     overflow: hidden;
     overflow-y: scroll;
     
@@ -91,3 +117,66 @@ div.anime .desc{
 }
 
   
+
+.comentarios-anime{
+  background: #393e46;
+  border-radius:10px;
+}
+
+
+.comentario{
+  width:100%;
+  display: flex;
+  color:white;
+
+  align-items: center;
+}
+
+.comentario .perfil{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 10px;
+}
+
+.comentario .perfil .foto{
+  width:50px;
+  height:50px;
+  border-radius: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+  margin-right: 10px;
+}
+
+
+.comentario .perfil .foto img{
+  width: 100%;
+  height: 100%;
+  object-fit:cover ;
+}
+
+
+.comentario .contenido{
+  padding:10px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100%;
+  width:100%;
+}
+
+.comentario .contenido{
+  border-left:solid 1px white;
+}
+
+.comentario .acciones{
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  flex-direction: column;
+  
+}
+.comentario .acciones a{
+  color:white;
+}

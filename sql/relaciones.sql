@@ -13,10 +13,12 @@ CREATE TABLE IF NOT EXISTS vistas
 
 CREATE TABLE IF NOT EXISTS comentarios
 (
+    id_comentario integer NOT NULL GENERATED ALWAYS AS IDENTITY,
     id_cuenta integer NOT NULL,
     id_anime integer NOT NULL,
     contenido text,
     fecha timestamp with time zone DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT comentarios_pkey PRIMARY KEY (id_comentario),
     CONSTRAINT comentarios_cuentas_fkey FOREIGN KEY (id_cuenta)
         REFERENCES usuarios (id_cuenta),
     CONSTRAINT comentarios_animes_fkey FOREIGN KEY (id_anime)
