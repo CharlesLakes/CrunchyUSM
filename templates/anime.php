@@ -13,7 +13,7 @@
             Tipo: <?php echo $is_pelicula ? "Pelicula" : "Serie"; ?>
         </div>
         <div>
-            Generos: Sexo
+            Generos: <?php echo implode(", ", $generos); ?>
         </div>
         <?php if (!$is_pelicula) { ?>
             <div>
@@ -100,32 +100,34 @@
         <button class="btn btn-outline-light">Comentar</button>
     </form>
     <?php
-    foreach ($comentarios as $comentario) {
+    if ($comentarios) {
+        foreach ($comentarios as $comentario) {
     ?>
-        <div class="comentario p-2" id="comentario-<?php echo $comentario["id_comentario"]; ?>">
-            <div class="perfil">
-                <div class="foto">
-                    <img src="<?php echo $comentario["foto"]; ?>">
+            <div class="comentario p-2" id="comentario-<?php echo $comentario["id_comentario"]; ?>">
+                <div class="perfil">
+                    <div class="foto">
+                        <img src="<?php echo $comentario["foto"]; ?>">
+                    </div>
+                    <span class="nombre">
+                        <?php echo $comentario["nombre"]; ?>
+                    </span>
                 </div>
-                <span class="nombre">
-                    <?php echo $comentario["nombre"]; ?>
-                </span>
-            </div>
-            <div class="contenido">
-                <p>
-                    <?php echo htmlentities($comentario["contenido"]); ?>
-                </p>
-            </div>
-            <?php if (intval($_SESSION["id_cuenta"]) == intval($comentario["id_cuenta"])) { ?>
-                <div class="acciones">
-                    <button class="btn btn-info mb-2 editar" data-id="<?php echo $comentario["id_comentario"]; ?>">Editar</button>
-                    <form action="comentar.php" method="POST">
-                        <input type="hidden" name="id_comentario" value="<?php echo $comentario["id_comentario"]; ?>">
-                        <input type="hidden" name="accion" value="DELETE">
-                        <button class="btn btn-danger">Eliminar</button>
-                    </form>
+                <div class="contenido">
+                    <p>
+                        <?php echo htmlentities($comentario["contenido"]); ?>
+                    </p>
                 </div>
-            <?php } ?>
-        </div>
-    <?php } ?>
+                <?php if (intval($_SESSION["id_cuenta"]) == intval($comentario["id_cuenta"])) { ?>
+                    <div class="acciones">
+                        <button class="btn btn-info mb-2 editar" data-id="<?php echo $comentario["id_comentario"]; ?>">Editar</button>
+                        <form action="comentar.php" method="POST">
+                            <input type="hidden" name="id_comentario" value="<?php echo $comentario["id_comentario"]; ?>">
+                            <input type="hidden" name="accion" value="DELETE">
+                            <button class="btn btn-danger">Eliminar</button>
+                        </form>
+                    </div>
+                <?php } ?>
+            </div>
+    <?php }
+    } ?>
 </div>

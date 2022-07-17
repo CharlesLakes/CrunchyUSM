@@ -5,7 +5,11 @@ session_start();
 if (!isset($_SESSION["id_cuenta"]) || !isset($_GET["id_anime"]))
     header("location: /login.php");
 
-
+$head = function () {
+?>
+    <link rel="stylesheet" href="css/anime.css">
+<?php
+};
 
 function main()
 {
@@ -46,6 +50,18 @@ function main()
         WHERE temporal.id_anime=$1",
         array($_GET["id_anime"])
     );
+
+    $generos = $database->queryResponse(
+        "SELECT generos.nombre 
+        FROM animes_generos 
+        INNER JOIN generos
+        ON animes_generos.id_genero = generos.id_genero
+        WHERE animes_generos.id_anime = $1",
+        array($_GET["id_anime"])
+    );
+    $generos = array_map(function ($valor) {
+        return $valor["nombre"];
+    }, $generos);
 
     include "../templates/anime.php";
 }
