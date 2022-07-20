@@ -10,6 +10,9 @@
             Puntuación media: <?php echo $anime["puntuacion_media"] ? $anime["puntuacion_media"] : 0; ?>
         </div>
         <div>
+            Cantidad de comentarios: <?php echo $comentarios ? count($comentarios) : 0; ?>
+        </div>
+        <div>
             Tipo: <?php echo $is_pelicula ? "Pelicula" : "Serie"; ?>
         </div>
         <div>
@@ -39,6 +42,7 @@
                 <input type="hidden" name="id_anime" value="<?php echo $_GET["id_anime"]; ?>">
                 <?php if ($is_calificado) { ?>
                     <select class="form form-control" style="display: inline-block;min-width:100px;width:auto;" name="puntuacion">
+                        <option value="delete">-- BORRAR --</option>
                         <option value="1" <?php echo $is_calificado[0]["valor"] == 1 ? "selected" : "" ?>>1</option>
                         <option value="2" <?php echo $is_calificado[0]["valor"] == 2 ? "selected" : "" ?>>2</option>
                         <option value="3" <?php echo $is_calificado[0]["valor"] == 3 ? "selected" : "" ?>>3</option>
@@ -47,7 +51,7 @@
                     </select>
                 <?php } else { ?>
                     <select class="form form-control" style="display: inline-block;min-width:100px;width:auto;" name="puntuacion">
-                        <option selected disabled>-- puntuación --</option>
+                        <option selected value="delete">-- puntuación --</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -66,7 +70,7 @@
     <?php
     if ($is_pelicula) {
     ?>
-        <a href="" style="color:white;">
+        <a href="contenido.php?id_pelicula=<?php echo $anime["is_pelicula"]; ?>" style="color:white;">
             <div class="video-redirect">
                 <div class="left">
                     <?php echo $anime["nombre"]; ?>

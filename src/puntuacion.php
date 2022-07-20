@@ -9,7 +9,15 @@ if (!isset($_SESSION["id_cuenta"]) || !isset($_POST["id_anime"]) || !isset($_POS
 
 
 $is_calificado = $database->queryResponse("SELECT valor FROM calificaciones WHERE id_cuenta=$1 AND id_anime=$2", array($_SESSION["id_cuenta"], $_POST["id_anime"]));
-if ($is_calificado) {
+if ($_POST["puntuacion"] == "delete") {
+    $database->queryNotResponse(
+        "DELETE FROM calificaciones WHERE id_cuenta=$1 AND id_anime=$2",
+        array(
+            intval($_SESSION["id_cuenta"]),
+            intval($_POST["id_anime"])
+        )
+    );
+} else if ($is_calificado) {
     $database->queryNotResponse(
         "UPDATE calificaciones SET valor = $3 WHERE id_cuenta=$1 AND id_anime=$2 ",
         array(intval($_SESSION["id_cuenta"]), intval($_POST["id_anime"]), intval($_POST["puntuacion"]))

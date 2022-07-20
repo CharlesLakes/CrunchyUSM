@@ -16,7 +16,7 @@ function main()
     global $database;
     $anime = $database->queryResponse(
         "
-        SELECT peliculas.id_anime as is_pelicula, animes.nombre, animes.descripcion, animes.foto, animes.puntuacion_media 
+        SELECT peliculas.id_anime as is_pelicula, animes.nombre, animes.descripcion, animes.foto, animes.puntuacion_media, animes.fecha
         FROM animes LEFT JOIN peliculas ON animes.id_anime = peliculas.id_anime 
         WHERE animes.id_anime=$1",
         array($_GET["id_anime"])
@@ -62,6 +62,7 @@ function main()
     $generos = array_map(function ($valor) {
         return $valor["nombre"];
     }, $generos);
+
 
     include "../templates/anime.php";
 }

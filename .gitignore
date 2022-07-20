@@ -20,3 +20,5 @@ tags
 *.un~
 
 /src/user_img/*
+/src/anime_img/*
+/src/anime_contenido/*

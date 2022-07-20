@@ -9,10 +9,10 @@ $result;
 $flag = isset($_GET["id_pelicula"]);
 if (isset($_GET["id_pelicula"]))
     $result = $database->queryResponse("
-        SELECT animes.id_anime as id_pelicula,animes.nombre, peliculas.contenido FROM (
+        SELECT temporal.id_anime as id_pelicula,temporal.nombre, temporal.contenido FROM (
             SELECT animes.id_anime,animes.nombre, peliculas.contenido 
             FROM peliculas INNER JOIN animes ON animes.id_anime = peliculas.id_anime
-        ) WHERE id_anime = $1;
+        ) as temporal WHERE id_anime = $1;
     ", array($_GET["id_pelicula"]))[0];
 else if (isset($_GET["id_capitulo"]))
     $result = $database->queryResponse("
