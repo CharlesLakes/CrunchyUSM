@@ -2,6 +2,11 @@
 
 require "../../db.php";
 
+session_start();
+
+if (!isset($_SESSION["id_admin"]))
+    header("location: /login.php");
+
 if (!isset($_GET["id_anime"]))
     header("Location: superadmin.php");
 

@@ -1,6 +1,10 @@
 <?php
 require "../../db.php";
 
+session_start();
+
+if (!isset($_SESSION["id_admin"]))
+    header("location: /login.php");
 
 function addChapter()
 {

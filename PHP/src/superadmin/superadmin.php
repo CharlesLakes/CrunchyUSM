@@ -1,6 +1,11 @@
 <?php
 require "../../db.php";
 
+session_start();
+
+if (!isset($_SESSION["id_admin"]))
+    header("location: /login.php");
+
 $s_anime = "";
 if (isset($_GET["anime"])) {
     $s_anime = $_GET["anime"];
@@ -38,6 +43,9 @@ $peliculas = $database->queryResponse(
 </head>
 
 <body>
+    <div class="container my-2">
+        <a href="/logout.php" class="btn btn-danger">Cerrar sesion</a>
+    </div>
     <div class="container pt-3">
         <button class="btn btn-dark" id="add-anime">Añadir anime</button>
         <button class="btn btn-dark" id="add-cap">Añadir capitulo</button>

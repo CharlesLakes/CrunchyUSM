@@ -18,13 +18,16 @@ function processRequests()
     }
 
 
-    $result = $database->queryResponse("SELECT id_cuenta,nombre FROM cuentas WHERE (correo=$1 OR nombre=$1) AND contrasena=$2", array($_POST["email"], $_POST["password"]));
+    $result = $database->queryResponse("SELECT id_cuenta FROM cuentas WHERE (correo=$1 OR nombre=$1) AND contrasena=$2", array($_POST["email"], $_POST["password"]));
 
     if ($result) {
-        $_SESSION["id_cuenta"] = $result[0]["id_cuenta"];
-        $usuario = $database->queryResponse("SELECT * FROM usuarios WHERE id_cuenta = $1", array($_SESSION["id_cuenta"]));
+        $usuario = $database->queryResponse("SELECT * FROM usuarios WHERE id_cuenta = $1", array($result[0]["id_cuenta"]));
         if ($usuario) {
+            $_SESSION["id_cuenta"] = $result[0]["id_cuenta"];
             header("Location: index.php");
+        } else {
+            $_SESSION["id_admin"] =  $result[0]["id_cuenta"];
+            header("Location: superadmin/superadmin.php");
         }
 
         return;
